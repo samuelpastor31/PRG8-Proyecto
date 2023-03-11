@@ -2,5 +2,5 @@ package proyecto.productos;
 
 public enum TipoPostre {
 
-    DIABETICOS,CELIACIOS,AMBOS;
+    DIABETICOS,CELIACIOS,AMBOS,NINGUNO;
 }

@@ -1,5 +1,10 @@
 package proyecto;
 
+import de.vandermeer.asciitable.AsciiTable;
+import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
+import proyecto.productos.Producto;
+import proyecto.productos.TipoProducto;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,20 +17,71 @@ public class Pedido {
     private String nombreCliente;
     private boolean servidoAMesa;
 
-    public Pedido(int identificador, ArrayList<String> productos, LocalDateTime fecha, String nombreCliente, boolean servidoAMesa) {
-        this.identificador = identificador;
+
+    public Pedido() {
         this.productos = new ArrayList<>();
+    }
+
+    public static void verPedido(Pedido pedido){
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow(null, "Código", null, "Nombre", null, "Fecha", null, "Servido");
+        at.addRule();
+
+        at.addRow(null, pedido.getIdentificador(), null, pedido.getNombreCliente(), null,pedido.getFecha(),null,pedido.getServidoAMesa());
+        at.setTextAlignment(TextAlignment.CENTER);
+        at.addRule();
+        at.addRow("", "", "", "", "", "", "", "");
+        System.out.println(at.render(90));
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+    
+    public boolean getServidoAMesa(){
+        return servidoAMesa;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
+    }
+
+    public boolean isServidoAMesa() {
+        return servidoAMesa;
+    }
+
+    public void setServidoAMesa(boolean servidoAMesa) {
         this.servidoAMesa = servidoAMesa;
     }
 
-    public void crearPedido(Pedido pedido){
-        do {
-            System.out.println("Introduzca su nombre");
-            pedido.nombreCliente=scanner.next();
-            System.out.println("Introduzca la fecha actual en formato dd/mm/yyyy");
-        }while(true);
-
+    public void anyadirProducto(Producto producto){
+        productos.add(producto);
     }
+    
+    
 }
