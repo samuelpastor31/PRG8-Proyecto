@@ -43,7 +43,6 @@ public class Restaurante {
             switch (opcion) {
                 case 1:
                     crearPedido(listaProductos, listaPedidos);
-
                     break;
                 case 2:
                     verPedido(listaPedidos);
@@ -89,7 +88,6 @@ public class Restaurante {
         String codigo = "o"+i;
         pedido.setIdentificador(codigo);
         listaPedidos.anyadirPedido(pedido);
-        i++;
     }
 
     public void verPedido(ListaPedidos listaPedidos) {
