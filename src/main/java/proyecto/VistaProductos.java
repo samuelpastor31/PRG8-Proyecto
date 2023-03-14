@@ -49,7 +49,7 @@ public class VistaProductos {
                 at.addRow("", "", "", "", "", "", "", "", "", "");
                 System.out.println(at.render(90));
             } else {
-                System.out.println("El código de pedido ingresado no es válido. Por favor intenta de nuevo.");
+                System.out.println("El código de pedido ingresado no es válido. Por favor intenta de nuevo");
             }
         }
     }
