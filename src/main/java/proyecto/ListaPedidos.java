@@ -52,27 +52,5 @@ public class ListaPedidos {
         return listaPedidos;
     }
 
-    public void obtenerPedido() {
-
-        String input = Restaurante.scanner.next();
-
-        for (int i = 0; i < listaPedidos.size(); i++) {
-            if (input.equals(listaPedidos.get(i).getIdentificador())) {
-                AsciiTable at = new AsciiTable();
-                at.addRule();
-                at.addRow(null, "Código", null, "Nombre", null, "Fecha", null, "Servido");
-                at.addRule();
-                at.addRow(null, listaPedidos.get(i).getIdentificador(), null, listaPedidos.get(i).getNombreCliente(),
-                        null, listaPedidos.get(i).getFecha(), null,listaPedidos.get(i).getServidoAMesa());
-                at.setTextAlignment(TextAlignment.CENTER);
-                at.addRule();
-                at.addRow("", "", "", "", "", "", "", "");
-                System.out.println(at.render(90));
-                break;
-            } else {
-                System.out.println("El código de pedido ingresado no es válido. Por favor intenta de nuevo.");
-            }
-        }
-    }
 }
 

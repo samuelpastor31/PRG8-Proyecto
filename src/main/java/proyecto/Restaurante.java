@@ -69,7 +69,7 @@ public class Restaurante {
         listaPedidos.verPedido();
         System.out.println("Que pedido quieres ver con más detalle?");
         // preguntar a listaPedidos que te de el pedido con el código que el usuario haya introducido
-        vistaProductos.obtenerPedido();
+        vistaProductos.obtenerPedido(listaPedidos);
     }
 
 
@@ -80,10 +80,10 @@ public class Restaurante {
         System.out.println("Introduzca la fecha actual en formato dd/mm/yyyy");
         pedido.setFecha(LocalDateTime.now());
         pedido.setServidoAMesa(false);
-        repetirAnyadirProductosApedido(TipoProducto.BEBIDA, "Deseas tomar alguna bebida?", pedido, listaProductos, "b[1-9]");
-        repetirAnyadirProductosApedido(TipoProducto.ENTRANTE, "Deseas tomar algun entrante?", pedido, listaProductos, "e[1-10]");
-        repetirAnyadirProductosApedido(TipoProducto.MONTADITOS, "Deseas tomar algun montadito?", pedido, listaProductos, "m[1-20]");
-        repetirAnyadirProductosApedido(TipoProducto.POSTRE, "Postre quieres?", pedido, listaProductos, "e[1-6]");
+        repetirAnyadirProductosApedido(TipoProducto.BEBIDA, "Deseas tomar alguna bebida?", pedido, listaProductos);
+        repetirAnyadirProductosApedido(TipoProducto.ENTRANTE, "Deseas tomar algun entrante?", pedido, listaProductos);
+        repetirAnyadirProductosApedido(TipoProducto.MONTADITOS, "Deseas tomar algun montadito?", pedido, listaProductos);
+        repetirAnyadirProductosApedido(TipoProducto.POSTRE, "Postre quieres?", pedido, listaProductos);
 
         int i = 1;
         String codigo = "o"+i;
@@ -98,16 +98,16 @@ public class Restaurante {
         // mostrar pedido.
     }
 
-    private void repetirAnyadirProductosApedido(TipoProducto tipoProducto, String mensaje, Pedido pedido, ListaProductos listaProductos, String match) {
+    private void repetirAnyadirProductosApedido(TipoProducto tipoProducto, String mensaje, Pedido pedido, ListaProductos listaProductos) {
         System.out.println(mensaje);
         ArrayList<Producto> productos = listaProductos.filtrarPorTipo(tipoProducto);
         VistaProductos vistaProductos = new VistaProductos(productos);
         vistaProductos.mostrarProductos();
-        anyadirProductosAPedido(productos, pedido, match);
+        anyadirProductosAPedido(productos, pedido);
     }
 
 
-    private void anyadirProductosAPedido(ArrayList<Producto> productos, Pedido pedido, String match) {
+    private void anyadirProductosAPedido(ArrayList<Producto> productos, Pedido pedido) {
         int aux = 1;
         String producto = "";
         boolean encontrado = false;
