@@ -1,5 +1,6 @@
 package proyecto;
 
+import de.vandermeer.asciitable.AT_Row;
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 import proyecto.productos.Montaditos;
@@ -30,16 +31,19 @@ public class VistaProductos {
         System.out.println(at.render(90));
     }
 
-    public void obtenerPedido(ListaPedidos listaPedidos) {
+    public void obtenerPedido() {
 
-        String input = Restaurante.scanner.next();
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow(null, "Código", null, null, null, null, null, "Nombre", null, "Precio Base");
+        at.addRule();
 
         for (int i = 0; i < productos.size(); i++) {
-            if (input.equals(productos.get(i).getCodigo())) {
-               mostrarProductos();
-            } else {
-                System.out.println("El código de pedido ingresado no es válido. Por favor intenta de nuevo");
-            }
+            at.addRow(null, productos.get(i).getCodigo(), null, null, null, null, null, productos.get(i).getNombre(), null,productos.get(i).getPrecio());
+            at.setTextAlignment(TextAlignment.CENTER);
         }
+        at.addRule();
+        at.addRow("", "", "", "", "", "", "", "", "", "");
+        System.out.println(at.render(90));
     }
 }

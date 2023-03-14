@@ -73,10 +73,13 @@ public class Restaurante {
 
     public void visualizarOrden(ArrayList<Producto> productos, ListaPedidos listaPedidos){
         VistaProductos vistaProductos = new VistaProductos(productos);
+        ArrayList<Pedido> pedido= new ArrayList<>();
         listaPedidos.verPedido();
         System.out.println("Que pedido quieres ver con más detalle?");
+        String codigo = scanner.next();
         // preguntar a listaPedidos que te de el pedido con el código que el usuario haya introducido
-        vistaProductos.obtenerPedido(listaPedidos);
+        pedido.add(listaPedidos.filtrarPedido(codigo));
+        listaPedidos.obtenerPedido();
     }
 
 
