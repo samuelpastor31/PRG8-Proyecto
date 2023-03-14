@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Restaurante {
+
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -54,10 +58,10 @@ public class Restaurante {
                      servirPedido(listaPedidos);
                     break;
                 case 5:
-                    System.out.println("Gracias por utilizar el sistema de gestión de pedidos.");
+                    System.out.println(ANSI_BLUE+"Gracias por utilizar el sistema de gestión de pedidos."+ANSI_RESET);
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione otra opción.");
+                    System.out.println(ANSI_RED+"Opción no válida. Por favor, seleccione otra opción."+ANSI_RESET);
                     break;
             }
         } while (opcion != 5);
@@ -110,7 +114,7 @@ public class Restaurante {
         String producto = "";
         boolean encontrado = false;
         do {
-            System.out.println("Introduzca el código del producto que desea añadir (0 para finalizar)");
+            System.out.println("Introduzca el código del producto que desea añadir "+ANSI_BLUE+"(0 para finalizar)"+ANSI_RESET);
             String input = scanner.next();
             encontrado = false;
             for (int j = 0; j < productos.size(); j++) {
@@ -126,7 +130,7 @@ public class Restaurante {
                 }
             }
             if (!encontrado && !input.equals("0")) {
-                System.out.println("El codigo del producto introducido no existe");
+                System.out.println(ANSI_RED+"El codigo del producto introducido no existe"+ANSI_RESET);
             }
             if (input.equals("0")) {
                 aux = 0;
@@ -139,6 +143,6 @@ public class Restaurante {
         System.out.println("Introduzca el código de la orden que desear servir");
         String codigo = scanner.next();
         listadoPedidos.filtrarPedido(codigo).setServidoAMesa(true);
-        System.out.println("El pedido ha sido marcado como servido");
+        System.out.println(ANSI_BLUE+"El pedido ha sido marcado como servido"+ANSI_RESET);
     }
 }
