@@ -137,7 +137,7 @@ public class Restaurante {
     }
 
     public void servirPedido(ListaPedidos listadoPedidos){
-        listadoPedidos.obtenerPedido();
+        listadoPedidos.verPedido();
         System.out.println("Introduzca el código de la orden que desear servir");
         String codigo = scanner.next();
         listadoPedidos.filtrarPedido(codigo).setServidoAMesa(true);
