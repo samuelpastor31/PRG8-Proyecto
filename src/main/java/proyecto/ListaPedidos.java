@@ -48,11 +48,11 @@ public class ListaPedidos {
 
         AsciiTable at = new AsciiTable();
         at.addRule();
-        at.addRow(null, "Código", null, null, null, null, null, "Nombre", null, "Precio Base");
+        at.addRow(null, "Código", null, null, null, null,"Descuento", null, "Nombre", null, "Precio Base");
         at.addRule();
 
         for (int i = 0; i < listaPedidos.get(0).getProductos().size(); i++) {
-            at.addRow(null, listaPedidos.get(0).getProductos().get(i).getCodigo(), null, null, null, null, null, listaPedidos.get(0).getProductos().get(i).getNombre(), null,listaPedidos.get(0).getProductos().get(i).getPrecio());
+            at.addRow(null, listaPedidos.get(0).getProductos().get(i).getCodigo(), null, null, null, null,listaPedidos.get(0).getProductos().get(i).getDescuento(), null, listaPedidos.get(0).getProductos().get(i).getNombre(), null,listaPedidos.get(0).getProductos().get(i).getPrecio());
             at.setTextAlignment(TextAlignment.CENTER);
         }
         at.addRule();

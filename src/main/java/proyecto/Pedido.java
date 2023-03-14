@@ -28,8 +28,10 @@ public class Pedido {
         return identificador;
     }
     
-    public boolean getServidoAMesa(){
-        return servidoAMesa;
+    public String getServidoAMesa(){
+       if (servidoAMesa){
+           return "Si";
+       }else return "No servido";
     }
 
     public void setIdentificador(String identificador) {
