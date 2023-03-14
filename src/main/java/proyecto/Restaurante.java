@@ -13,6 +13,10 @@ public class Restaurante {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
+
+    public static final String ANSI_WHITE = "\u001B[37m";
+
+    public static final String ANSI_CYAN = "\u001B[36m";
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -35,7 +39,7 @@ public class Restaurante {
         int opcion;
 
         do {
-            System.out.println("Bienvenido al bar de los 20 montaditos.");
+            System.out.println(ANSI_CYAN+"Bienvenido al bar de los 20 montaditos."+ANSI_RESET);
             System.out.println("1. Crear nuevo pedido");
             System.out.println("2. Listar todos los pedidos");
             System.out.println("3. Visualizar orden");
